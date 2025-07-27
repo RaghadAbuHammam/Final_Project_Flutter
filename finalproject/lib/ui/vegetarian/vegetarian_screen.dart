@@ -1,9 +1,8 @@
 import 'package:finalproject/core/constants/assets.dart';
 import 'package:finalproject/core/constants/colors.dart';
 import 'package:finalproject/core/constants/strings.dart';
-import 'package:finalproject/widgets/choose_categoryv.dart';
+import 'package:finalproject/ui/vegetarian/choose_categoryv.dart';
 import 'package:finalproject/widgets/custom_appbar.dart';
-//import 'package:finalproject/widgets/custom_bottom_nav.dart';
 import 'package:finalproject/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -25,7 +24,6 @@ class _VegetarianScreenState extends State<VegetarianScreen> {
       backgroundColor: AppColors.vegBackground,
       appBar: CustomAppbar(),
       drawer: CustomDrawer(),
-      //bottomNavigationBar: CustomNavBar(currentIndex: 0, onTap: (index) {}),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(

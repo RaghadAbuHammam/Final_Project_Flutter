@@ -26,8 +26,26 @@ class AppStrings {
   static const String goBack = 'Go Back';
 
   //choose screen string:
-
+  static const String wellcometext = 'Welcome Chef';
+  static const String selecttext = 'Please select!';
+  static const String areyoutext = 'Are you......';
+  static const String vornvtext = 'Vegetarian OR Non-Vegetarian?';
+  
   //vegetarian screen string:
   static const String wellcometextv = '"When you choose plant-based food, you are choosing health, the environment, animals, and the future."';
+  static const String titlebv='Vegetarian Breakfast';
+  static const String titlelv = 'Vegetarian Lunch';
+  static const String titledv = 'Vegetarian Dinner';
+  static const String titledev = 'Vegetarian Desserts';
+  static const String titlesv = 'Vegetarian Snacks';
+
+  //Non_vegetarian screen string:
+  static const String wellcometextnv =
+      'Enjoy preparing what you want?';
+  static const String titlebnv = 'Non-Vegetarian Breakfast';
+  static const String titlelnv = 'Non-Vegetarian Lunch';
+  static const String titlednv = 'Non-Vegetarian Dinner';
+  static const String titledenv = 'Non-Vegetarian Desserts';
+  static const String titlesnv = 'Non-Vegetarian Snacks';
   
 }

@@ -2,7 +2,6 @@ import 'package:finalproject/core/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:lottie/lottie.dart';
-
 import 'package:finalproject/core/constants/colors.dart';
 import 'package:finalproject/core/constants/strings.dart';
 

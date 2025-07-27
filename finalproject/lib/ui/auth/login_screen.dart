@@ -1,5 +1,5 @@
+import 'package:finalproject/widgets/custom_bottom_nav.dart';
 import 'package:flutter/material.dart';
-import 'package:finalproject/ui/choose/choose_screen.dart';
 import 'package:lottie/lottie.dart';
 import 'package:finalproject/core/constants/colors.dart';
 import 'package:finalproject/core/constants/strings.dart';
@@ -173,7 +173,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             MaterialPageRoute(
                               builder:
                                   (context) =>
-                                      ChooseScreen(name: nameController.text),
+                                      CustomBottomNav(),
                             ),
                           );
                         }

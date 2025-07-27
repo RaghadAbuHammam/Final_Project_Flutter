@@ -1,6 +1,6 @@
 import 'package:finalproject/core/constants/assets.dart';
 import 'package:finalproject/core/constants/colors.dart';
-import 'package:finalproject/widgets/choosecategorynv.dart';
+import 'package:finalproject/ui/nonvegetarian/choosecategorynv.dart';
 import 'package:finalproject/widgets/custom_appbar.dart';
 import 'package:finalproject/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';

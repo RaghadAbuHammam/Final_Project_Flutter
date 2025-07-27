@@ -14,6 +14,12 @@ class AppAssets {
   static const String loginAnimation =
       'https://lottie.host/0498fd41-11e5-4680-884f-857276883652/K7tSiWlDP0.json';
 
+  //choose screen asset:
+  static const String choose_1Animation =
+      'https://thumbs.dreamstime.com/b/vegetables-fruits-arranged-circle-green-background-generative-ai-269666131.jpg';
+  static const String choose_2Animation =
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_twp3pXoh57eZA7w3xLUpu-Z6mpWofXC1yg&s';
+
   //vegetarian screen asset:
   static const String vegetarianAnimation =
       'https://lottie.host/1e28d85c-f6bf-4ba4-a407-8b4296690518/Z2wlqGjQlw.json';

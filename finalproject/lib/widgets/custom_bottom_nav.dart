@@ -1,6 +1,5 @@
 import 'package:finalproject/ui/choose/choose_screen.dart';
 import 'package:finalproject/ui/favorites_screen.dart';
-//import 'package:finalproject/widgets/choose_categoryv.dart';
 import 'package:finalproject/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:dot_curved_bottom_nav/dot_curved_bottom_nav.dart';
@@ -17,10 +16,11 @@ List<Widget> icons = [
   Icon(Icons.favorite),
   Icon(Icons.person),
 ];
-int index = 0;
+
 List<Widget> screens = [ChooseScreen(), FavoritesScreen(), CustomDrawer()];
 
 class _CustomBottomNavState extends State<CustomBottomNav> {
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

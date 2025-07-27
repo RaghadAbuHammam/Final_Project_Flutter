@@ -1,10 +1,9 @@
+import 'package:finalproject/widgets/custom_bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:finalproject/core/constants/colors.dart';
 import 'package:finalproject/core/constants/strings.dart';
 import 'package:finalproject/core/constants/assets.dart';
-import 'package:finalproject/ui/choose/choose_screen.dart';
-
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -158,7 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           MaterialPageRoute(
                             builder:
                                 (context) =>
-                                    ChooseScreen(name: nameController.text),
+                                    CustomBottomNav(),
                           ),
                         );
                       }

@@ -1,39 +1,95 @@
+import 'package:finalproject/core/constants/colors.dart';
+import 'package:finalproject/core/constants/strings.dart';
 import 'package:finalproject/data/nvegetarian_lunch_recipes.dart';
 import 'package:flutter/material.dart';
-import 'package:finalproject/widgets/recipe_card.dart'; 
 import 'package:finalproject/ui/RecipeDetailsScreen.dart';
 
-class LunchNVScreen extends StatelessWidget {
+class LunchNVScreen extends StatefulWidget {
   const LunchNVScreen({super.key});
+
+  @override
+  State<LunchNVScreen> createState() => _LunchNVScreenState();
+}
+
+class _LunchNVScreenState extends State<LunchNVScreen> {
+  final Set<int> _favoriteIndexes = {};
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown,
-      appBar: AppBar(title: const Text('Non-Vegetarian Lunch')),
+      backgroundColor: AppColors.nvegBackground,
+      appBar: AppBar(title: const Text(AppStrings.titlelnv)),
       body: SafeArea(
         child: GridView.builder(
           padding: const EdgeInsets.all(12),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, 
+            crossAxisCount: 2,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            childAspectRatio: 3 / 2, 
+            childAspectRatio: 3 / 2,
           ),
           itemCount: nonVegetarianLunchRecipes.length,
           itemBuilder: (context, index) {
             final recipe = nonVegetarianLunchRecipes[index];
-            return RecipeCard(
-              title: recipe.title,
-              duration: recipe.duration,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => RecipeDetailsScreen(recipe: recipe),
+            final isFavorite = _favoriteIndexes.contains(index);
+
+            return Stack(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => RecipeDetailsScreen(recipe: recipe),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          recipe.title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "Duration: ${recipe.duration}",
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      ],
+                    ),
                   ),
-                );
-              },
+                ),
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (isFavorite) {
+                          _favoriteIndexes.remove(index);
+                        } else {
+                          _favoriteIndexes.add(index);
+                        }
+                      });
+                    },
+                    child: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? Colors.red : Colors.grey,
+                    ),
+                  ),
+                ),
+              ],
             );
           },
         ),

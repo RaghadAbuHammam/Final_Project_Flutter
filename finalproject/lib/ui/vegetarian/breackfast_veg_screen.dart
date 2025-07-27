@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:finalproject/core/constants/colors.dart';
+import 'package:finalproject/core/constants/strings.dart';
 import 'package:finalproject/data/vegetarian_breakfast_recipes.dart';
 import 'package:finalproject/ui/RecipeDetailsScreen.dart';
-import 'package:finalproject/widgets/recipe_card.dart';
 
 class BreakfastVScreen extends StatefulWidget {
   const BreakfastVScreen({super.key});
@@ -11,13 +12,13 @@ class BreakfastVScreen extends StatefulWidget {
 }
 
 class _BreakfastVScreenState extends State<BreakfastVScreen> {
-  final Set<int> favoriteIndexes = {};
+  final Set<int> _favoriteIndexes = {};
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(title: const Text('Vegetarian Breakfast')),
+      backgroundColor: AppColors.vegBackground,
+      appBar: AppBar(title: const Text(AppStrings.titlebv)),
       body: SafeArea(
         child: GridView.builder(
           padding: const EdgeInsets.all(12),
@@ -30,29 +31,65 @@ class _BreakfastVScreenState extends State<BreakfastVScreen> {
           itemCount: vegetarianBreakfastRecipes.length,
           itemBuilder: (context, index) {
             final recipe = vegetarianBreakfastRecipes[index];
-            final isFavorite = favoriteIndexes.contains(index);
+            final isFavorite = _favoriteIndexes.contains(index);
 
-            return RecipeCard(
-              title: recipe.title,
-              duration: recipe.duration,
-              isFavorite: isFavorite,
-              onFavoriteToggle: () {
-                setState(() {
-                  if (isFavorite) {
-                    favoriteIndexes.remove(index);
-                  } else {
-                    favoriteIndexes.add(index);
-                  }
-                });
-              },
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => RecipeDetailsScreen(recipe: recipe),
+            return Stack(
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => RecipeDetailsScreen(recipe: recipe),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          recipe.title,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          "Duration: ${recipe.duration}",
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      ],
+                    ),
                   ),
-                );
-              },
+                ),
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (isFavorite) {
+                          _favoriteIndexes.remove(index);
+                        } else {
+                          _favoriteIndexes.add(index);
+                        }
+                      });
+                    },
+                    child: Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? Colors.red : Colors.grey,
+                    ),
+                  ),
+                ),
+              ],
             );
           },
         ),

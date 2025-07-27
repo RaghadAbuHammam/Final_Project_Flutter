@@ -1,4 +1,5 @@
 import 'package:finalproject/core/constants/colors.dart';
+import 'package:finalproject/core/constants/strings.dart';
 import 'package:flutter/material.dart';
 
 class Choosecategorynv extends StatelessWidget {
@@ -9,7 +10,7 @@ class Choosecategorynv extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'Enjoy preparing what you want?',
+          AppStrings.wellcometextnv,
           style: TextStyle(
             color: AppColors.nvegText,
             fontWeight: FontWeight.bold,
@@ -43,7 +44,7 @@ class Choosecategorynv extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          icon: Icon(Icons.lunch_dining, color: Colors.white),
+          icon: Icon(Icons.lunch_dining, color: Colors.black),
         ),
         TextButton.icon(
           onPressed: () {
@@ -56,7 +57,7 @@ class Choosecategorynv extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          icon: Icon(Icons.dinner_dining, color: Colors.white),
+          icon: Icon(Icons.dinner_dining, color: Colors.black),
         ),
         TextButton.icon(
           onPressed: () {
